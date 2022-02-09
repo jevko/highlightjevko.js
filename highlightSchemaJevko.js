@@ -1,4 +1,4 @@
-import {trim3, jv} from 'https://cdn.jsdelivr.net/gh/jevko/jevkoutils.js@v0.1.4/mod.js'
+import {trim3} from 'https://cdn.jsdelivr.net/gh/jevko/jevkoutils.js@v0.1.5/mod.js'
 
 export const highlightSchemaJevko = (jevko) => {
   const {subjevkos, suffix} = jevko
