@@ -48,7 +48,7 @@ const toObject = (jevko) => {
   let ret = ''
   for (const {prefix, jevko} of subjevkos) {
     const [pre, mid, post] = trim3(prefix)
-    ret += `${pre}span[class=[key]${mid}]${post}\`[${highlightSchemaJevko(jevko)}\`]` //[key] = jevkoToSchema(jevko)
+    ret += `${pre}span[class=[key][${mid}]]${post}\`[${highlightSchemaJevko(jevko)}\`]` //[key] = jevkoToSchema(jevko)
   }
 
   return `span[class=[object]${ret}[${suffix}]]`
