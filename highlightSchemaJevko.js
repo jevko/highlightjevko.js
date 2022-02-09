@@ -21,14 +21,14 @@ const toArray = (jevko) => {
   if (subjevkos.length !== 1) throw Error('subs !== 1 in array')
   const {prefix, jevko: j} = subjevkos[0]
   if (prefix.trim() !== '') throw Error('empty prefix expected')
-  return `span[class=[array]\`[${highlightSchemaJevko(j)}\`][${suffix}]]`
+  return `span[class=[array][\`[]${highlightSchemaJevko(j)}[\`]][${suffix}]]`
 }
 
 const toTuple = (jevko) => {
   const {subjevkos, suffix} = jevko
   let ret = ''
   for (const {prefix, jevko} of subjevkos) {
-    ret += `${prefix}\`[${highlightSchemaJevko(jevko)}\`]`
+    ret += `${prefix}[\`[]${highlightSchemaJevko(jevko)}[\`]]`
   }
   return `span[class=[tuple]${ret}[${suffix}]]`
 }
@@ -37,7 +37,7 @@ const toFirstMatch = (jevko) => {
   const {subjevkos, suffix} = jevko
   let ret = ''
   for (const {prefix, jevko} of subjevkos) {
-    ret += `${prefix}\`[${highlightSchemaJevko(jevko)}\`]`
+    ret += `${prefix}[\`[]${highlightSchemaJevko(jevko)}[\`]]`
   }
   return `span[class=[firstMatch]${ret}[${suffix}]]`
 }
@@ -48,7 +48,7 @@ const toObject = (jevko) => {
   let ret = ''
   for (const {prefix, jevko} of subjevkos) {
     const [pre, mid, post] = trim3(prefix)
-    ret += `${pre}span[class=[key][${mid}]]${post}\`[${highlightSchemaJevko(jevko)}\`]` //[key] = jevkoToSchema(jevko)
+    ret += `${pre}span[class=[key][${mid}]]${post}[\`[]${highlightSchemaJevko(jevko)}[\`]]` //[key] = jevkoToSchema(jevko)
   }
 
   return `span[class=[object]${ret}[${suffix}]]`
