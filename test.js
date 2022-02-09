@@ -1,4 +1,4 @@
-import {highlightSchemaJevko} from './highlightSchema.js'
+import {highlightSchemaJevko} from './highlightSchemaJevko.js'
 import {parseJevko} from 'https://cdn.jsdelivr.net/gh/jevko/parsejevko.js@v0.1.3/mod.js'
 
 console.log(highlightSchemaJevko(parseJevko(`
