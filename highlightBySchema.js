@@ -24,8 +24,8 @@ const toFloat64 = (jevko, schema) => {
   if (subjevkos.length > 0) throw Error('nonempty subjevkos in string')
   const trimmed = suffix.trim()
   if (trimmed === 'NaN') return `<span class="float64">NaN</span>`
-  const num = Number.parseFloat(trimmed)
-  if (Number.isNaN(num)) throw Error(`Not a number (${trimmed})`)
+  const num = Number(trimmed)
+  if (Number.isNaN(num) || trimmed === '') throw Error(`Not a number (${trimmed})`)
   return `<span class="float64">${num}</span>`
 }
 
