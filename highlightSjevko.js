@@ -40,7 +40,7 @@ const toTuple = (jevko) => {
   const {subjevkos, suffix} = jevko
   let ret = []
   for (const {prefix, jevko} of subjevkos) {
-    ret.push(prefix, ["["], ...recur(jevko), ["]"])
+    ret.push([prefix], ["["], ...recur(jevko), ["]"])
   }
   return ["span", ["class=", ["tuple"], ...ret, [suffix]]]
 }
@@ -49,7 +49,7 @@ const toFirstMatch = (jevko) => {
   const {subjevkos, suffix} = jevko
   let ret = []
   for (const {prefix, jevko} of subjevkos) {
-    ret.push(prefix, ["["], ...recur(jevko), ["]"])
+    ret.push([prefix], ["["], ...recur(jevko), ["]"])
   }
   return ["span", ["class=", ["firstMatch"], ...ret, [suffix]]]
 }
@@ -60,7 +60,7 @@ const toObject = (jevko) => {
   let ret = []
   for (const {prefix, jevko} of subjevkos) {
     const [pre, mid, post] = trim3(prefix)
-    ret.push(pre, "span", ["class=", ["key"], [mid]], post, ["["], ...recur(jevko), ["]"])
+    ret.push([pre], "span", ["class=", ["key"], [mid]], [post], ["["], ...recur(jevko), ["]"])
   }
 
   return ["span", ["class=", ["object"], ...ret, [suffix]]]
